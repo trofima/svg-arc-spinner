@@ -25,20 +25,23 @@ function compileTs() {
 }
 
 function compileSass() {
-    gulp.src('./src/**/*.scss')
-        .pipe(sass().on('error', throwPluginError))
+    return gulp.src('./src/**/*.scss')
+        .pipe(sass()
+            .on('error', throwPluginError))
         .pipe(gulp.dest('./compiled/src/'));
 }
 
 function minJs() {
     return gulp.src('./compiled/src/**/*.js')
-        .pipe(concat('SVGArcSpinner.min.js').on('error', throwPluginError))
-        .pipe(uglify().on('error', throwPluginError))
+        .pipe(concat('SVGArcSpinner.min.js')
+            .on('error', throwPluginError))
+        .pipe(uglify()
+            .on('error', throwPluginError))
         .pipe(gulp.dest('./dist/'));
 }
 
 function minCss() {
-    gulp.src('./compiled/**/*.css')
+    return gulp.src('./compiled/**/*.css')
         .pipe(concatCss('SVGArcSpinner.min.css')
             .on('error', throwPluginError))
         .pipe(uglifyCss()
@@ -55,7 +58,8 @@ function declareTs() {
 
 function test() {
     return gulp.src('./compiled/spec/**/*.spec.js')
-        .pipe(jasmine().on('error', throwPluginError))
+        .pipe(jasmine()
+            .on('error', throwPluginError))
 }
 
 gulp
