@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG Arc</title>
+
+    <link rel="stylesheet" href="dist/SVGArcSpinner.min.css">
+</head>
+<body>
+    <div id="spinnerContainer"></div>
+
+    <script src="dist/SVGArcSpinner.min.js"></script>
+
+    <script>
+        var spinnerContainer = document.getElementById('spinnerContainer');
+
+        spinnerContainer.innerHTML = new SVGArcSpinner({size: 100}).render();
+    </script>
+</body>
+</html>

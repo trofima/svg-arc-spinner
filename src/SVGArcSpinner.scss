@@ -1,0 +1,43 @@
+// IMPORTANT! Radius should be the same as radius set in SVGArcSpinner instance
+$radius: 40;
+$pi: 3.14;
+$circle-length: 2 * $pi * $radius;
+$arc-start: .55 * $circle-length, .45 * $circle-length;
+$arc-end: .05 * $circle-length, .95 * $circle-length;
+
+$spinner-stroke-default-color: #000000;
+
+.svg-spinner {
+  > circle {
+    animation: spin 1s linear infinite;
+    fill: none;
+    opacity: 1;
+    stroke-dasharray: $arc-start;
+    stroke-dashoffset: 0;
+    stroke-width: 3;
+    stroke: $spinner-stroke-default-color;
+    transform: rotateZ(-90deg) rotateY(180deg);
+    transform-origin: center;
+    will-change: stroke-dasharray, stroke-dashoffset, opacity;
+  }
+}
+
+@keyframes spin {
+  0% {
+    stroke-dasharray: $arc-start;
+    stroke-dashoffset: 0;
+    opacity: .60;
+  }
+
+  50% {
+    stroke-dasharray: $arc-end;
+    stroke-dashoffset: .05 * $circle-length;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dasharray: $arc-start;
+    stroke-dashoffset: $circle-length;
+    opacity: .60;
+  }
+}
