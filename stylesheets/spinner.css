@@ -1,0 +1,8 @@
+.svg-spinner {
+    display: block;
+    margin: 0 auto;
+}
+
+    .svg-spinner > circle {
+        stroke: #3899ec;
+    }
